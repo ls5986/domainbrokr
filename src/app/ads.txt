@@ -1,0 +1,5 @@
+# ads.txt file for AdSense verification
+# This file helps with AdSense verification and ad serving
+
+# Add your AdSense publisher ID here when you get it
+# google.com, pub-5967127883638065, DIRECT, f08c47fec0942fa0

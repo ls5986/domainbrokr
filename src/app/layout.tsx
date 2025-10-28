@@ -52,12 +52,13 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <head>
         {/* Google AdSense */}
-        <Script
-          async
+        <script 
+          async 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5967127883638065"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        ></script>
+        {/* AdSense Verification Meta Tag - Add this if script method fails */}
+        {/* <meta name="google-adsense-account" content="ca-pub-5967127883638065"> */}
       </head>
       <body className={`${inter.className} h-full`}>
         <div className="min-h-screen bg-gray-50 flex flex-col">
