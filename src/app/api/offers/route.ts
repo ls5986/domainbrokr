@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend only if API key is available
+let resend: any = null;
+if (process.env.RESEND_API_KEY) {
+  try {
+    const { Resend } = require('resend');
+    resend = new Resend(process.env.RESEND_API_KEY);
+  } catch (error) {
+    console.warn('Resend not available:', error);
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -51,9 +59,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email notification
-    try {
-      await resend.emails.send({
+    // Send email notification (if Resend is available)
+    if (resend) {
+      try {
+        await resend.emails.send({
         from: 'DomainBrokr <noreply@domainbrokr.com>',
         to: [process.env.ADMIN_EMAIL!],
         subject: `New Offer for ${domain_name}`,
@@ -89,10 +98,13 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
         `,
-      });
-    } catch (emailError) {
-      console.error('Email error:', emailError);
-      // Don't fail the request if email fails
+        });
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+        // Don't fail the request if email fails
+      }
+    } else {
+      console.log('Email notification skipped - Resend not configured');
     }
 
     return NextResponse.json({ success: true, offer });

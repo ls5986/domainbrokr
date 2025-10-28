@@ -123,7 +123,7 @@ export default async function DomainPage({ params }: DomainPageProps) {
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Perfect for:</h3>
                       <ul className="space-y-1">
-                        {domain.use_cases.map((useCase, index) => (
+                        {domain.use_cases.map((useCase: string, index: number) => (
                           <li key={index} className="flex items-center text-gray-600">
                             <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                             {useCase}

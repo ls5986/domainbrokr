@@ -172,7 +172,7 @@ export default function Home() {
                   <div className='mb-3'>
                     <h4 className='text-sm font-semibold text-gray-700 mb-1'>Perfect for:</h4>
                     <ul className='text-xs text-gray-600 space-y-1'>
-                      {domain.use_cases.slice(0, 3).map((useCase, useIndex) => (
+                      {domain.use_cases.slice(0, 3).map((useCase: string, useIndex: number) => (
                         <li key={useIndex} className='flex items-center'>
                           <span className='w-1 h-1 bg-blue-500 rounded-full mr-2'></span>
                           {useCase}

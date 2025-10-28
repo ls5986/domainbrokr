@@ -127,7 +127,7 @@ export const DomainGrid: React.FC<DomainGridProps> = ({ filters = {} }) => {
               {/* Insert ad every 6 domains */}
               {(index + 1) % 6 === 0 && (
                 <div className="col-span-1 md:col-span-2 lg:col-span-3">
-                  <AdBanner position="content" />
+                  <AdBanner position="between-content" />
                 </div>
               )}
             </React.Fragment>
