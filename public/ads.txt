@@ -3,3 +3,6 @@
 
 # Add your AdSense publisher ID here when you get it
 # google.com, pub-5967127883638065, DIRECT, f08c47fec0942fa0
+
+# For now, this file exists to help with AdSense verification
+# The actual publisher ID will be added once AdSense account is approved
