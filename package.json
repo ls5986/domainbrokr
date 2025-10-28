@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "npm run build && git add . && git commit -m 'Deploy to Vercel' && git push origin main",
+    "enhance-domains": "node scripts/enhance-domains.js",
+    "import-domains": "node import-domains.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
